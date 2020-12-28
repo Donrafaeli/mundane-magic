@@ -13,7 +13,7 @@ module.exports = {
     colors: {
       'snow': '#FAFAFF',
       'mist': '#CCE1E6',
-      'thick-mist': '#A4C4C6',
+      'thick-mist': '#94BBBE',
       'evergreen': '#077058',
       'night': '#01313D',
     },
