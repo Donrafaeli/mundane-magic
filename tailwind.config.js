@@ -13,8 +13,15 @@ module.exports = {
     colors: {
       'snow': '#FAFAFF',
       'mist': '#CCE1E6',
+      'thick-mist': '#A4C4C6',
       'evergreen': '#077058',
       'night': '#01313D',
+    },
+    scale: {
+      '101': '1.01',
+      '102': '1.02',
+      '103': '1.03',
+      '104': '1.04',
     },
     extend: {},
   },
