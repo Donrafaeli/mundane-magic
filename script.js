@@ -63,18 +63,58 @@ const messages = [
 ];
 const $target = document.querySelector("#target");
 const $messages = document.querySelector("#messages");
+var i = 0;
 
 // button cooldown
 
 
-
-// get random message and send it ovet to html element
-function newMessage () {
-    const randomNumber = Math.floor(Math.random() * (messages.length));
-    function randomize(){
-    document.getElementById("target").innerHTML = messages[randomNumber];
+// shuffle the messages array
+function shuffle(messages) {
+    var currentIndex = messages.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = messages[currentIndex];
+      messages[currentIndex] = messages[randomIndex];
+      messages[randomIndex] = temporaryValue;
     }
-    randomize();
-    
+  
+    return messages;
+  }
+
+shuffle(messages);
+
+// step through array one by one
+function nextItem() {
+    i = i + 1; // increase i by one
+    i = i % messages.length; // if we've gone too high, start from `0` again
+    return messages[i]; // give us back the item of where we are now
 }
 
+window.addEventListener('load', function () {
+    document.getElementById('target').textContent = messages[0]; // initial value
+    
+    document.getElementById('btn').addEventListener(
+        'click', // we want to listen for a click
+        function (e) { // the e here is the event itself
+            document.getElementById('target').textContent = nextItem();
+        }
+    );
+});
+
+// hide modal if user clicks outside
+        // Get the modal
+        var modal = document.getElementById('modal-id');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+            }
+        }
