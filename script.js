@@ -61,8 +61,9 @@ const messages = [
     'Getting dirt under my fingernails from digging in the garden',
     "Picking a rose for myself, sneaking so the neighbors don't see", 
 ];
-const $target = document.querySelector("#target");
-const $messages = document.querySelector("#messages");
+const $target = document.getElementById('target');
+const $messages = document.getElementById("messages");
+const $btn = document.getElementById("btn");
 var i = 0;
 
 // button cooldown
@@ -89,6 +90,7 @@ function shuffle(messages) {
   }
 
 shuffle(messages);
+window.onload = function(){document.getElementById('target').textContent = nextItem()};
 
 // step through array one by one
 function nextItem() {
@@ -97,24 +99,14 @@ function nextItem() {
     return messages[i]; // give us back the item of where we are now
 }
 
-window.addEventListener('load', function () {
-    document.getElementById('target').textContent = messages[0]; // initial value
-    
-    document.getElementById('btn').addEventListener(
-        'click', // we want to listen for a click
-        function (e) { // the e here is the event itself
-            document.getElementById('target').textContent = nextItem();
-        }
-    );
-});
+// Fade out text, replace it with next item in shuffled text array, then fade it in
+function fade() {
+  document.getElementById('target').classList.add('fade-text');
+  setTimeout(function(){document.getElementById('target').textContent = nextItem();}, 250);
+  setTimeout(function(){document.getElementById('target').classList.remove('fade-text');}, 300);  
+}
 
-// hide modal if user clicks outside
-        // Get the modal
-        var modal = document.getElementById('modal-id');
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-        if (event.target == modal) {
-        modal.style.display = "none";
-            }
-        }
+//show modal
+function modalShow(){
+  document.getElementById('modal-id').classList.add='visible', 'opacity-100';
+}

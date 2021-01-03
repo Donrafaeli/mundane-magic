@@ -17082,54 +17082,27 @@ video {
   transform: translate(-50%, -50%);
 }
 
-.fade-in {
-  -webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+.fade-before {
+  visibility:hidden;
+  opacity: 0;
+  transition:visibility 0s ease-in-out 0.2s, opacity 0.2s ease-in-out;
 }
 
-@-webkit-keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.fade {
+  visibility:visible;
+  opacity: 1;
+  transition-delay:0s;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.fade-text {
+  visibility:hidden;
+  opacity: 0;
+  transition:visibility 0s ease-in-out 0.3s, opacity 0.3s ease-in-out;
 }
 
-.fade-out {
-  -webkit-animation: fade-out 1s ease-out both;
-  animation: fade-out 1s ease-out both;
-}
-
-@-webkit-keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.bg-blur-5{
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 
 @media (min-width: 640px) {

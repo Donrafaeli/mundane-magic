@@ -12,25 +12,25 @@
     <div class="table-cell align-middle text-center"> 
         <h1 class="m-8">
             <span class= "block font-sans leading-6 lg:leading-10 font-bold text-thick-mist text-xl lg:text-3xl">Mundane magic is...</span>
-            <span class= "block font-sans leading-6 lg:leading-10 font-bold text-evergreen text-xl lg:text-3xl" id="target"></span>           
+            <span class= "transition-opacity duration-500 opacity-100 block font-sans leading-6 lg:leading-10 font-bold text-evergreen text-xl lg:text-3xl" id="target"></span>           
         </h1>         
 
         <a class="mx-8 inline-block">
-            <button id="btn" class="cooldown transition duration-200 ease-in-out w-48 lg:w-60 h-12 lg:h-14 tracking-wider bg-thick-mist text-snow font-medium transform transform-gpu hover:scale-103 active:scale-103 focus:outline-none font-sans rounded-md shadow-l">REMIND ME</button>
+            <button id="btn" onclick="fade()" class="ease-in-out w-48 lg:w-60 h-12 lg:h-14 tracking-wider bg-thick-mist text-snow font-medium transform transform-gpu hover:scale-103 active:scale-103 focus:outline-none font-sans rounded-md shadow-l">REMIND ME</button>
         </a>
 
     </div>
     <!--modal-->
-    <div class="hidden overflow-x-hidden overflow-y-auto absolute inset-0 items-center justify-center z-50 outline-none focus:outline-none " id="modal-id">
-        <div class="w-10/12 md:w-auto lg:w-auto mx-auto max-w-5xl lg:max-w-3xl flex items-center justify-center inset-center">
+    <div id="modal-id" class="fade-before overflow-x-hidden overflow-y-auto absolute inset-0 items-center justify-center z-50 outline-none focus:outline-none">
+        <div id="modal-window" class=" w-10/12 md:w-auto, mx-auto max-w-5xl md:max-w-2xl lg:max-w-xl flex items-center justify-center inset-center">
             <!--content-->
             <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-snow outline-none focus:outline-none">
                 <!--header-->
-                <div class="flex items-start justify-between p-6 lg:p-8 rounded-t">
+                <div class="flex items-start justify-between p-8 lg:p-8 rounded-t">
                     <h3 class="lg:leading-10 text-xl lg:text-3xl text-evergreen font-semibold">
-                    The heck are you on about?
+                    The heck are you on&nbsp;about?
                     </h3>
-                        <button class="p-1 ml-auto border-0 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="document.getElementById('modal-id').style.display='none'">
+                        <button class="p-1 ml-auto border-0 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="document.getElementById('modal-id').classList.remove('fade');">
                         <span class="bg-transparent -6 w-6 leading-6 lg:leading-8 text-xl lg:text-3xl block outline-none focus:outline-none">
                         ×
                         </span>
@@ -38,31 +38,29 @@
                 </div>
                 <!--body-->
                 <div class="relative px-8 pb-8 flex-auto">
-                    <p class="mb-2 text-night leading-tight lg:leading-relaxed text-l lg:text-xl">
+                    <p class="mb-2 text-night leading-tight lg:leading-normal text-l lg:text-xl">
                     I have begun to discover the importance of noticing and preserving little things.
-                    Human moments, inconsequential tiny details, boring ecstasy.
+                    Human moments, inconsequential details, boring ecstasy.
                     They make me smile and remind me that magic is always within reach.
-                    I must remember. This is a way - a catalog of mundane magic.
-                    Highly subjective, but probably not as much as I think.
+                    I must remember. This is a way — a&nbsp;catalog of mundane magic.
+                    Highly&nbsp;subjective, but probably not as much as I think.
                     </p>
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript">
-        // Get the modal
         var modal = document.getElementById('modal-id');
-
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
         if (event.target == modal) {
-        modal.style.display = "none";
+        document.getElementById('modal-id').classList.remove('fade');
             }
         }
       </script>
 </article>  
 </body>
 <footer class="block fixed text-center font-bold text-evergreen inset-x-0 bottom-0 m-8">
-    <a class="cursor-pointer border-b-2 focus:outline-none focus:ring-2 ring-snow" onclick="{document.getElementById('modal-id').style.display='block'}">What?</a>
+    <a class="cursor-pointer border-b-2 focus:outline-none focus:ring-2 ring-snow" onclick="{document.getElementById('modal-id').classList.add('fade');}">What?</a>
 </footer>
 </html>
